@@ -1,0 +1,95 @@
+:root {
+    --primaryCol: #000;
+    --onPrimaryCol: #fff;
+    --secCol: #ddd;
+    --onSecCol: #000;
+    --highCol: rgb(0, 102, 255)
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+a,
+li,
+ul,
+ol {
+    text-decoration: none;
+}
+
+.nav {
+    background: var(--primaryCol);
+    color: var(--onPrimaryCol);
+    height: 8vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    .title {
+        font-size: 24px;
+        letter-spacing: 5px;
+    }
+}
+
+.listContainer {
+    width: 90vw;
+    margin: 30px auto;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+
+    .listItemCard {
+        background-color: var(--primaryCol);
+        color: var(--onPrimaryCol);
+        padding: 15px 20px;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: row;
+        column-gap: 20px;
+        align-items: center;
+
+        .imageDiv {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            row-gap: 10px;
+
+            .image {
+                width: 80px;
+                height: 80px;
+                object-fit: cover;
+                object-position: center;
+                border-radius: 50%;
+            }
+
+            .btn {
+                background: var(--highCol);
+                /* color: var(--onSecCol); */
+                padding: 2px;
+                text-align: center;
+                border-radius: 10px;
+            }
+        }
+
+        .info {
+            /* display: flex;
+            flex-direction: column;
+            justify-content: space-between; */
+
+            .name {
+                font-size: 24px;
+                margin-bottom: 10px;
+            }
+
+            .profession {
+                color: var(--secCol);
+            }
+        }
+
+
+    }
+}
