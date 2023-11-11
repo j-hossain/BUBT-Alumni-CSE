@@ -3,7 +3,7 @@
     --onPrimaryCol: #fff;
     --secCol: #ddd;
     --onSecCol: #000;
-    --highCol: rgb(0, 102, 255)
+    --highCol: #0099cc
 }
 
 * {
@@ -34,62 +34,133 @@ ol {
     }
 }
 
-.listContainer {
-    width: 90vw;
-    margin: 30px auto;
-    max-width: 400px;
-    display: flex;
-    flex-direction: column;
-    row-gap: 20px;
+.contentBody {
+    width: 100%;
+    position: relative;
 
-    .listItemCard {
-        background-color: var(--primaryCol);
+    .detailsSideBar {
+        width: 100%;
+        max-width: 400px;
+        height: 100%;
+        min-height: 90vh;
+        background: var(--highCol);
         color: var(--onPrimaryCol);
-        padding: 15px 20px;
-        border-radius: 20px;
-        display: flex;
-        flex-direction: row;
-        column-gap: 20px;
-        align-items: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 30px 0;
 
-        .imageDiv {
+        .detaisDiv {
+            width: 90%;
+            margin: 0 auto;
+            height: auto;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            row-gap: 10px;
+            row-gap: 15px;
+            align-items: center;
+
+            .name {
+                font-size: 20px;
+            }
+
+            .organisation {
+                font-weight: bold;
+                color: var(--onSecCol);
+            }
+
+            .contact {
+                padding-top: 30px;
+                display: flex;
+                flex-direction: column;
+                row-gap: 10px;
+            }
+        }
+
+        .imageDiv {
+            text-align: center;
 
             .image {
-                width: 80px;
-                height: 80px;
+                width: 120px;
+                height: 120px;
                 object-fit: cover;
                 object-position: center;
                 border-radius: 50%;
             }
-
-            .btn {
-                background: var(--highCol);
-                /* color: var(--onSecCol); */
-                padding: 2px;
-                text-align: center;
-                border-radius: 10px;
-            }
         }
-
-        .info {
-            /* display: flex;
-            flex-direction: column;
-            justify-content: space-between; */
-
-            .name {
-                font-size: 24px;
-                margin-bottom: 10px;
-            }
-
-            .profession {
-                color: var(--secCol);
-            }
-        }
-
-
     }
+
+    .listContainer {
+        width: 90vw;
+        padding: 30px 0;
+        margin: 0 auto;
+        max-width: 400px;
+        display: flex;
+        flex-direction: column;
+        row-gap: 20px;
+
+        .listItemCard {
+            background-color: var(--primaryCol);
+            color: var(--onPrimaryCol);
+            padding: 15px 20px;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: row;
+            column-gap: 20px;
+            align-items: center;
+
+            .imageDiv {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                row-gap: 10px;
+
+                .image {
+                    width: 80px;
+                    height: 80px;
+                    object-fit: cover;
+                    object-position: center;
+                    border-radius: 50%;
+                }
+
+                .btn {
+                    background: var(--highCol);
+                    /* color: var(--onSecCol); */
+                    padding: 2px;
+                    text-align: center;
+                    border-radius: 10px;
+                }
+            }
+
+            .info {
+                /* display: flex;
+                flex-direction: column;
+                justify-content: space-between; */
+
+                .name {
+                    font-size: 24px;
+                    margin-bottom: 10px;
+                }
+
+                .profession {
+                    color: var(--secCol);
+                }
+            }
+
+
+        }
+    }
+
+    .filterSideBar {
+        width: 100%;
+        max-width: 400px;
+        height: 100%;
+        min-height: 90vh;
+        background: var(--secCol);
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 30px 0;
+    }
+
+
 }
