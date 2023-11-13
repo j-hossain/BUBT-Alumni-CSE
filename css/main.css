@@ -10,6 +10,7 @@
     margin: 0;
     padding: 0;
     scroll-behavior: smooth;
+    box-sizing: border-box;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
@@ -20,13 +21,21 @@ ol {
     text-decoration: none;
 }
 
+.d-none {
+    display: none !important;
+}
+
 .nav {
     background: var(--primaryCol);
     color: var(--onPrimaryCol);
-    height: 8vh;
+    height: 60px;
     display: flex;
     justify-content: space-around;
     align-items: center;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 9;
 
     .title {
         font-size: 24px;
@@ -45,8 +54,8 @@ ol {
         min-height: 90vh;
         background: var(--highCol);
         color: var(--onPrimaryCol);
-        position: absolute;
-        top: 0;
+        position: fixed;
+        top: 60px;
         left: 0;
         padding: 30px 0;
 
@@ -58,6 +67,7 @@ ol {
             flex-direction: column;
             row-gap: 15px;
             align-items: center;
+            text-align: center;
 
             .name {
                 font-size: 20px;
@@ -73,6 +83,7 @@ ol {
                 display: flex;
                 flex-direction: column;
                 row-gap: 10px;
+                text-align: left;
             }
         }
 
@@ -128,6 +139,7 @@ ol {
                     padding: 2px;
                     text-align: center;
                     border-radius: 10px;
+                    cursor: pointer;
                 }
             }
 
@@ -156,10 +168,54 @@ ol {
         height: 100%;
         min-height: 90vh;
         background: var(--secCol);
-        position: absolute;
-        top: 0;
+        position: fixed;
+        top: 60px;
         right: 0;
         padding: 30px 0;
+
+        .typeHeader {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 0 10px;
+            padding-bottom: 10px;
+
+            .title {
+                font-size: 28px;
+            }
+
+            .resetBtn {
+                border: none;
+                padding: 5px 10px;
+                background: var(--highCol);
+                color: var(--onPrimaryCol);
+                border-radius: 10px;
+                font-size: 18px;
+            }
+        }
+
+        .optionDiv {
+            display: grid;
+            grid-template-columns: 35% 65%;
+            align-content: center;
+            border: 1px solid var(--highCol);
+            margin: 10px;
+            padding: 10px;
+            border-radius: 10px;
+
+            .optionTitle {
+                display: flex;
+                align-items: center;
+            }
+
+            .optionInput select,
+            input {
+                width: 100%;
+                border: none;
+                padding: 5px;
+                border-radius: 5px;
+            }
+        }
     }
 
 

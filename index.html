@@ -22,48 +22,126 @@
             <div class="imageDiv">
                 <img class="image" src="./images/blankAvatar.jpg" alt="Jahin Hossain">
             </div>
-            <div class="detaisDiv">
-                <p class="name">Iftekhar Ahamed Siddique</p>
-                <p class="intake">Intake 44 (Day)</p>
-                <p class="graduation">Graduated on 2023</p>
+            <div class="detaisDiv" id="detaisDiv">
+                <p class="name" id="name">Iftekhar Ahamed Siddique</p>
+                <p class="batch">Intake <span class="intake">44</span> ( <span class="shift"></span> )</p>
+                <p>Graduated on <span class="graduation">2023</span></p>
                 <p class="profession">Associate Software Engineer</p>
                 <p class="organisation">Brain Station 23 Ltd.</p>
-                <p class="experience">Total Experience of 4 years 7 months</p>
+                <p>Total Experience of <span class="experience">4 years 7 months</span></p>
                 <div class="contact">
                     <p>Contact Through:</p>
                     <p class="social">https://www.facebook.com/rashed.6658/</p>
-                    <p class="email">Email: jahin.hsn101@gmail.com</p>
+                    <p>Email: <span class="email">jahin.hsn101@gmail.com</span></p>
                 </div>
             </div>
         </div>
-        <div class="listContainer">
-            <div class="listItemCard">
-                <div class="imageDiv">
-                    <img class="image" src="./images/blankAvatar.jpg" alt="Jahin Hossain">
-                    <span class="btn">Details</span>
-                </div>
-                <div class="info">
-                    <p class="name">Iftekhar Ahmed Siddique</p>
-                    <p class="profession">Associate Software Engineer</p>
-                    <p class="organisation">Brain Station 23 Ltd.</p>
-                </div>
+        <div id="cardDemo" class="listItemCard d-none">
+            <div class="imageDiv">
+                <img class="image" src="./images/blankAvatar.jpg" alt="">
+                <span class="btn">Details</span>
             </div>
-            <div class="listItemCard">
-                <div class="imageDiv">
-                    <img class="image" src="./images/blankAvatar.jpg" alt="Jahin Hossain">
-                    <span class="btn">Details</span>
-                </div>
-                <div class="info">
-                    <p class="name">Jahin Hossian</p>
-                    <p class="profession">Associate Software Engineer</p>
-                    <p class="organisation">Brain Station 23 Ltd.</p>
-                </div>
+            <div class="info">
+                <p class="name"></p>
+                <p class="profession"></p>
+                <p class="organisation"></p>
             </div>
+        </div>
+        <div class="listContainer" id="cardContainer">
         </div>
         <div class="filterSideBar">
-
+            <!-- <div id="sortBy">
+                <div class="TypeHeader">
+                    <span>Sort By</span>
+                </div>
+            </div> -->
+            <div id="filterBy">
+                <div class="typeHeader">
+                    <p class="title">Filter By</p>
+                    <button class="resetBtn" onclick="resetFilter()">Reset</button>
+                </div>
+                <div class="optionDiv">
+                    <div class="optionTitle">
+                        <span>Name: </span>
+                    </div>
+                    <div class="optionInput">
+                        <input type="text" id="name" name="name">
+                    </div>
+                </div>
+                <div class="optionDiv">
+                    <div class="optionTitle">
+                        <span>Intake: </span>
+                    </div>
+                    <div class="optionInput">
+                        <select name="intake" id="intake">
+                            <option value="">ALL</option>
+                            <option value="">29</option>
+                            <option value="">32</option>
+                            <option value="">35</option>
+                            <option value="">38</option>
+                            <option value="">41</option>
+                            <option value="">44</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="optionDiv">
+                    <div class="optionTitle">
+                        <span>Shift: </span>
+                    </div>
+                    <div class="optionInput">
+                        <select name="shift" id="shift">
+                            <option value="">ALL</option>
+                            <option value="">Day</option>
+                            <option value="">Evening</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="optionDiv">
+                    <div class="optionTitle">
+                        <span>Graduation Year: </span>
+                    </div>
+                    <div class="optionInput">
+                        <select name="graduation" id="graduation">
+                            <option value="">ALL</option>
+                            <option value="">2020</option>
+                            <option value="">2021</option>
+                            <option value="">2022</option>
+                            <option value="">2023</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="optionDiv">
+                    <div class="optionTitle">
+                        <span>Profession: </span>
+                    </div>
+                    <div class="optionInput">
+                        <select name="profession" id="profession">
+                            <option value="">ALL</option>
+                            <option value="">Associate Software Engineer</option>
+                            <option value="">Lecturer</option>
+                            <option value="">Software Engineer</option>
+                            <option value="">Freelancer</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="optionDiv">
+                    <div class="optionTitle">
+                        <span>Organisation: </span>
+                    </div>
+                    <div class="optionInput">
+                        <select name="organisation" id="organisation">
+                            <option value="">ALL</option>
+                            <option value="">Brain Station 23</option>
+                            <option value="">Lecturer</option>
+                            <option value="">Software Engineer</option>
+                            <option value="">Freelancer</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+    <script src="./script/main.js"></script>
 </body>
 
 </html>
