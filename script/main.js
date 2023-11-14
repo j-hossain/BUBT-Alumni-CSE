@@ -30,6 +30,7 @@ function getAll() {
         let res = JSON.parse(xhttp.responseText);
         AllData = getAlumniData(res[0].data);
         filterdData = AllData;
+        initiateFilters();
         populateList(filterdData);
     }
     xhttp.open("GET", baseUrl);
@@ -51,7 +52,6 @@ function populateList(alumniData) {
         }
     });
     populateOptions(options);
-    setInputFilters();
 }
 
 function populateOptions(optionData) {
@@ -60,15 +60,20 @@ function populateOptions(optionData) {
     }
 }
 
-function setInputFilters() {
+function initiateFilters() {
     document.getElementById('filterBy').querySelectorAll('input').forEach(input => {
+        input.value = '';
         input.addEventListener("input", updateTable);
-    })
+    });
+    document.getElementById('filterBy').querySelectorAll('select').forEach(option => {
+        option.innerHTML = '<option value="ALL">All</option>';
+    });
 }
 
 function populateThis(div, options) {
+    if (div.value != 'ALL') return;
     div.addEventListener("change", updateTable);
-    div.innerHTML = options.length > 1 ? '<option value="ALL">All</option>' : '';
+    div.innerHTML = '<option value="ALL">All</option>';
     options.forEach(option => {
         let opt = document.createElement('option');
         opt.value = option;
@@ -130,6 +135,7 @@ function getAlumniObject(alumniData) {
 }
 
 function resetFilter() {
+    initiateFilters();
     populateList(AllData);
 }
 
