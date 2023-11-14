@@ -47,17 +47,33 @@ ol {
     width: 100%;
     position: relative;
 
+    .closeBtn {
+        background: var(--primaryCol);
+        /* font-weight: bold; */
+        padding: 20px 20px;
+        border-right: 3px solid var(--onPrimaryCol);
+        border-bottom: 3px solid var(--onPrimaryCol);
+        border-bottom-right-radius: 70px;
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        cursor: pointer;
+    }
+
     .detailsSideBar {
         width: 100%;
-        max-width: 400px;
-        height: 100%;
-        min-height: 90vh;
+        max-width: 450px;
+        height: 100vh;
         background: var(--highCol);
         color: var(--onPrimaryCol);
         position: fixed;
         top: 60px;
         left: 0;
         padding: 30px 0;
+        z-index: 99;
+        overflow: hidden;
+        /* border-top: 3px solid var(--onPrimaryCol);
+        border-left: 3px solid var(--onPrimaryCol); */
 
         .detaisDiv {
             width: 90%;
@@ -118,6 +134,8 @@ ol {
             flex-direction: row;
             column-gap: 20px;
             align-items: center;
+            position: relative;
+            overflow: hidden;
 
             .imageDiv {
                 display: flex;
@@ -136,17 +154,21 @@ ol {
                 .btn {
                     background: var(--highCol);
                     /* color: var(--onSecCol); */
-                    padding: 2px;
+                    padding: 8px;
+                    /* height: 70px;
+                    width: 70px; */
+                    border-top-left-radius: 20px;
                     text-align: center;
-                    border-radius: 10px;
                     cursor: pointer;
+                    position: absolute;
+                    bottom: 0;
+                    right: 0;
+                    border-top: 3px solid var(--onPrimaryCol);
+                    border-left: 3px solid var(--onPrimaryCol);
                 }
             }
 
             .info {
-                /* display: flex;
-                flex-direction: column;
-                justify-content: space-between; */
 
                 .name {
                     font-size: 24px;
@@ -155,6 +177,10 @@ ol {
 
                 .profession {
                     color: var(--secCol);
+                }
+
+                .organisation {
+                    width: 90%;
                 }
             }
 
@@ -194,13 +220,23 @@ ol {
             }
         }
 
+        #sortBy {
+            border-bottom: 3px solid var(--onPrimaryCol);
+            padding-bottom: 15px;
+        }
+
+        #filterBy {
+            padding-top: 15px;
+        }
+
         .optionDiv {
             display: grid;
             grid-template-columns: 35% 65%;
             align-content: center;
             border: 1px solid var(--highCol);
             margin: 10px;
-            padding: 10px;
+            padding: 5px;
+            padding-left: 10px;
             border-radius: 10px;
 
             .optionTitle {

@@ -2,7 +2,7 @@ let baseUrl = "https://script.google.com/macros/s/AKfycbxjLquOsQQD4Qkif0VgfDnsPn
 var AllData = [];
 var filterdData = [];
 
-function updateTable() {
+function updateList() {
     filterdData = [];
     let options = document.getElementById('filterBy').querySelectorAll('select');
     let inputs = document.getElementById('filterBy').querySelectorAll('input');
@@ -14,7 +14,7 @@ function updateTable() {
             }
         });
         inputs.forEach(input => {
-            if (input.value != "" && !data[input.id].includes(input.value)) {
+            if (input.value != "" && !data[input.id].toLowerCase().includes(input.value.toLowerCase())) {
                 console.log(input.value);
                 f = false;
             }
@@ -63,7 +63,7 @@ function populateOptions(optionData) {
 function initiateFilters() {
     document.getElementById('filterBy').querySelectorAll('input').forEach(input => {
         input.value = '';
-        input.addEventListener("input", updateTable);
+        input.addEventListener("input", updateList);
     });
     document.getElementById('filterBy').querySelectorAll('select').forEach(option => {
         option.innerHTML = '<option value="ALL">All</option>';
@@ -72,7 +72,7 @@ function initiateFilters() {
 
 function populateThis(div, options) {
     if (div.value != 'ALL') return;
-    div.addEventListener("change", updateTable);
+    div.addEventListener("change", updateList);
     div.innerHTML = '<option value="ALL">All</option>';
     options.forEach(option => {
         let opt = document.createElement('option');
@@ -97,6 +97,7 @@ function populateCard(card, data) {
 
 function populateAlumniDetails(data) {
     let detaisDiv = document.getElementById('detaisDiv');
+    document.querySelector('.detailsSideBar').classList.remove('d-none');
     for (key in data) {
         if (detaisDiv.querySelector('.' + key) != null) {
             detaisDiv.querySelector('.' + key).innerHTML = data[key];
@@ -132,6 +133,10 @@ function getAlumniObject(alumniData) {
     alumni['experience'] = alumniData['Experience'];
     alumni['social'] = alumniData['Social ID'];
     return alumni;
+}
+
+function closeDetails() {
+    document.querySelector('.detailsSideBar').classList.add('d-none');
 }
 
 function resetFilter() {

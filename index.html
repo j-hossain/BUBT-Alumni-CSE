@@ -18,21 +18,22 @@
         <p class="title">BUBT Alumni</p>
     </div>
     <div class="contentBody">
-        <div class="detailsSideBar">
+        <div class="detailsSideBar d-none">
+            <span class="closeBtn" onclick="closeDetails()">Close</span>
             <div class="imageDiv">
                 <img class="image" src="./images/blankAvatar.jpg" alt="Jahin Hossain">
             </div>
             <div class="detaisDiv" id="detaisDiv">
-                <p class="name" id="name">Iftekhar Ahamed Siddique</p>
-                <p class="batch">Intake <span class="intake">44</span> ( <span class="shift"></span> )</p>
-                <p>Graduated on <span class="graduation">2023</span></p>
-                <p class="profession">Associate Software Engineer</p>
-                <p class="organisation">Brain Station 23 Ltd.</p>
-                <p>Total Experience of <span class="experience">4 years 7 months</span></p>
+                <p class="name" id="name"></p>
+                <p class="batch">Intake <span class="intake"></span> ( <span class="shift"></span> )</p>
+                <p>Graduated on <span class="graduation"></span></p>
+                <p class="profession"></p>
+                <p class="organisation"></p>
+                <p>Total Experience of <span class="experience"></span></p>
                 <div class="contact">
                     <p>Contact Through:</p>
-                    <p class="social">https://www.facebook.com/rashed.6658/</p>
-                    <p>Email: <span class="email">jahin.hsn101@gmail.com</span></p>
+                    <p class="social"></p>
+                    <p>Email: <span class="email"></span></p>
                 </div>
             </div>
         </div>
@@ -50,11 +51,23 @@
         <div class="listContainer" id="cardContainer">
         </div>
         <div class="filterSideBar">
-            <!-- <div id="sortBy">
-                <div class="TypeHeader">
-                    <span>Sort By</span>
+            <div id="sortBy">
+                <div class="typeHeader">
+                    <p class="title">Sort By</p>
+                    <button class="resetBtn" onclick="resetFilter()">Reset</button>
                 </div>
-            </div> -->
+                <div class="optionDiv">
+                    <div class="optionTitle">
+                        <span>Field: </span>
+                    </div>
+                    <div class="optionInput">
+                        <select name="sort" id="sort">
+                            <option value="name">Name</option>
+                            <option value="intake">Intake</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
             <div id="filterBy">
                 <div class="typeHeader">
                     <p class="title">Filter By</p>
