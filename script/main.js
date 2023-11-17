@@ -1,6 +1,33 @@
 let baseUrl = "https://script.google.com/macros/s/AKfycbxjLquOsQQD4Qkif0VgfDnsPn5lc06B7XbDnDrYIkc4TqghYvDSqn_W5F_agK198YWeEQ/exec";
 var AllData = [];
-var filterdData = [];
+
+const reverseColumnMapping = {
+    'name': 'Name',
+    'intake': 'Intake',
+    'shift': 'Shift',
+    'id': 'University ID',
+    'graduation': 'Graduation Year',
+    'email': 'Email Address',
+    'profession': 'Profession',
+    'organisation': 'Current Organization',
+    'experience': 'Experience',
+    'social': 'Social ID'
+};
+
+const columnMapping = {
+    'Name': 'name',
+    'Intake': 'intake',
+    'Shift': 'shift',
+    'University ID': 'id',
+    'Graduation Year': 'graduation',
+    'Email Address': 'email',
+    'Profession': 'profession',
+    'Current Organization': 'organisation',
+    'Experience': 'experience',
+    'Social ID': 'social'
+};
+
+sortByCols = ['name', 'intake', 'id', 'graduation'];
 
 function updateList() {
     filterdData = [];
@@ -29,16 +56,15 @@ function getAll() {
     xhttp.onload = async function () {
         let res = JSON.parse(xhttp.responseText);
         AllData = getAlumniData(res[0].data);
-        filterdData = AllData;
         initiateFilters();
-        populateList(filterdData);
+        initiateSort();
+        populateList(AllData);
     }
     xhttp.open("GET", baseUrl);
     xhttp.send();
 }
 
 function populateList(alumniData) {
-    console.log(alumniData);
     let cardContainer = document.getElementById('cardContainer');
     cardContainer.innerHTML = "";
     options = {}
@@ -58,6 +84,28 @@ function populateOptions(optionData) {
     for (key in optionData) {
         populateThis(document.getElementById('filterBy').querySelector('#' + key), Array.from(optionData[key]).sort());
     }
+}
+
+function initiateSort() {
+    let sortOptions = document.getElementById('sortSelect');
+    sortOptions.addEventListener("change", doSort);
+    sortByCols.forEach(col => {
+        let option = document.createElement('option');
+        option.value = reverseColumnMapping[col];
+        option.innerHTML = reverseColumnMapping[col];
+        sortOptions.appendChild(option);
+    })
+    doSort();
+}
+
+function doSort() {
+    let col = columnMapping[document.getElementById('sortSelect').value];
+    if (col == undefined) return;
+    console.log(col);
+    AllData = AllData.sort((a, b) => {
+        return b[col] < a[col] ? 1 : -1;
+    })
+    updateList();
 }
 
 function initiateFilters() {
@@ -122,16 +170,9 @@ function getAlumniData(data) {
 
 function getAlumniObject(alumniData) {
     let alumni = {};
-    alumni['name'] = alumniData['Name'];
-    alumni['intake'] = alumniData['Intake'];
-    alumni['shift'] = alumniData['Shift'];
-    alumni['id'] = alumniData['University ID'];
-    alumni['graduation'] = alumniData['Graduation Year'];
-    alumni['email'] = alumniData['Email Address'];
-    alumni['profession'] = alumniData['Profession'];
-    alumni['organisation'] = alumniData['Current Organization'];
-    alumni['experience'] = alumniData['Experience'];
-    alumni['social'] = alumniData['Social ID'];
+    for (key in alumniData) {
+        alumni[columnMapping[key]] = alumniData[key];
+    }
     return alumni;
 }
 

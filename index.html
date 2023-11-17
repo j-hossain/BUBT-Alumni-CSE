@@ -10,6 +10,8 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script> -->
     <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="https://kit.fontawesome.com/f71646db13.css" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/f71646db13.js" crossorigin="anonymous"></script>
     <title>BUBT Alumni Info</title>
 </head>
 
@@ -54,16 +56,14 @@
             <div id="sortBy">
                 <div class="typeHeader">
                     <p class="title">Sort By</p>
-                    <button class="resetBtn" onclick="resetFilter()">Reset</button>
                 </div>
                 <div class="optionDiv">
                     <div class="optionTitle">
-                        <span>Field: </span>
+                        <span><i class="fa-solid fa-circle-chevron-up"></i></span>
+                        <span><i class="fa-solid fa-circle-chevron-down"></i></span>
                     </div>
                     <div class="optionInput">
-                        <select name="sort" id="sort">
-                            <option value="name">Name</option>
-                            <option value="intake">Intake</option>
+                        <select name="sortSelect" id="sortSelect">
                         </select>
                     </div>
                 </div>

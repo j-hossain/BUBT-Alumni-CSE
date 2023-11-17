@@ -76,6 +76,7 @@ ol {
         border-left: 3px solid var(--onPrimaryCol); */
 
         .detaisDiv {
+            padding-top: 30px;
             width: 90%;
             margin: 0 auto;
             height: auto;
@@ -144,6 +145,7 @@ ol {
                 row-gap: 10px;
 
                 .image {
+                    display: none;
                     width: 80px;
                     height: 80px;
                     object-fit: cover;
@@ -235,13 +237,19 @@ ol {
             align-content: center;
             border: 1px solid var(--highCol);
             margin: 10px;
-            padding: 5px;
-            padding-left: 10px;
             border-radius: 10px;
+            overflow: hidden;
 
             .optionTitle {
+                padding: 5px 10px;
                 display: flex;
                 align-items: center;
+                color: var(--onSecCol);
+            }
+
+            .optionInput {
+                padding: 5px;
+                background-color: var(--onPrimaryCol);
             }
 
             .optionInput select,
@@ -250,6 +258,11 @@ ol {
                 border: none;
                 padding: 5px;
                 border-radius: 5px;
+                /* background-color: var(--secCol); */
+            }
+
+            .optionInput option {
+                text-transform: capitalize;
             }
         }
     }
